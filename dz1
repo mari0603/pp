@@ -1,0 +1,72 @@
+1
+name = input("Введи ім'я:")
+age = input("Введи вік:")
+print("Привіт", name,"!", "тобі", age)
+2
+age = int(input("Введи вік:"))
+if age < 18:
+    print("Вхід заборонено")
+if age > 18:
+    print("Вхід дозволено")
+3
+import random
+number = random.randint(1, 10)
+attempt = 3
+for _ in range(attempt):
+    guess = int(input("Вгадайте число від 1 до 10:"))
+    if guess == number:
+        print("Вітаю! Ви вгадали!")
+        break
+    elif guess > number:
+        print("Менше")
+    else:
+        print("Більше")
+else:
+    print("Ви програли! Загадане число було", number)
+4
+a = int(input("Введіть перше число:"))
+b = int(input("Введіть друге число:"))
+for i in range(a, b + 1):
+    print(i, end=" ")
+5
+n = int(input("Введіть число n:"))
+for i in range(n, 0, -1):
+    if i % 2 == 0:
+        print(i, end=" ")
+6
+n = int(input("Введіть число n:"))
+factorial = 1
+for i in range(1, n + 1):
+    factorial *= i
+print("Факторіал", n, "дорівнює", factorial)
+7
+score = int(input("Введіть кількість балів:"))
+if 0 <= score <= 49:
+    print("Незадовільно")
+elif 50 <= score <= 69:
+    print("Задовільно")
+elif 70 <= score <= 89:
+    print("Добре")
+elif 90 <= score <= 100:
+    print("Відмінно")
+else:
+    print("Неправильний ввід бала")
+8
+a = float(input("Введіть перше число:"))
+b = float(input("Введіть друге число:"))
+operation = input("Введіть операцію - +, -, *, /:")
+
+if operation == "+":
+    print("Результат:", a + b)
+elif operation == "-":
+    print("Результат:", a - b)
+elif operation == "*":
+    print("Результат:", a * b)
+elif operation == "/":
+    if b == 0:
+        print("Помилка:Ділення на нуль.")
+    else:
+        print("Результат:", a / b)
+else:
+    print("Невідома операція")
+
