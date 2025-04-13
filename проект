@@ -1,0 +1,72 @@
+import time
+import random
+
+class Cat:
+    def init(self, name):
+        self.name = name
+        self.hunger = 5
+        self.energy = 5
+        self.mood = 5
+
+    def status(self):
+        print(f"Статус {self.name}:")
+        print(f"Голод: {self.hunger}/10")
+        print(f"Енергія: {self.energy}/10") 
+        print(f"Настрій: {self.mood}/10")
+
+    def feed(self):
+        if self.hunger > 0:
+            self.hunger -= 2
+            self.mood += 1
+            print(f"{self.name} поїв і тепер задоволений")
+        else:
+            print(f"{self.name} не голодний")
+        self._normalize()
+
+    def play(self):
+        if self.energy >= 2:
+            self.mood += 2
+            self.energy -= 2
+            self.hunger += 1
+            print(f"{self.name} грає")
+        else:
+            print(f"{self.name} занадто втомлений, щоб грати")
+        self._normalize()
+
+    def sleep(self):
+        self.energy += 3
+        self.hunger += 2
+        print(f"{self.name} спить")
+        self._normalize()
+
+    def _normalize(self):
+        self.hunger = min(max(self.hunger, 0), 10)
+        self.energy = min(max(self.energy, 0), 10)
+        self.mood = min(max(self.mood, 0), 10)
+
+def main():
+    name = input("Введи ім’я свого кота: ")
+    cat = Cat(name)
+
+    while True:
+        cat.status()
+        print("Що ти хочеш зробити?")
+        print("1. Годувати")
+        print("2. Гратися")
+        print("3. Спати")
+        print("4. Вийти")
+
+        choice = input("Вибір: ")
+        if choice == "1":
+            cat.feed()
+        elif choice == "2":
+            cat.play()
+        elif choice == "3":
+            cat.sleep()
+        elif choice == "4":
+            print(f"{cat.name} буде сумувати")
+            break
+        else:
+            print("Невірна команда!")
+if main == "main":
+    main()
